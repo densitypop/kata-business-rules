@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/lib/order')
+require File.expand_path(File.dirname(__FILE__) + '/lib/item')
 
 class Runner
 
@@ -15,24 +15,14 @@ class Runner
     @line_items.each do |line_item|
       line_item = line_item.split(";")
       qty = line_item.first.to_i
-      item = line_item.last
-      total = lookup_price(item) * qty
+      item = Item.new(line_item.last)
+      total = item.price * qty
       grand_total += total
-      slip << "#{qty}               #{item}   $#{lookup_price(item)}.00           $#{lookup_price(item)*qty}.00"
+      slip << "#{qty}               #{item.name}   $#{item.price}.00           $#{total}.00"
     end
     slip << "Grand total: $%.2f" % [grand_total]
 
     puts slip.join("\n").chomp
-  end
-
-
-  def lookup_price(item)
-    prices[item]
-  end
-
-
-  def prices
-    {"Widget X 2000" => 250, "Widget Y 2010" => 500}
   end
 
 
