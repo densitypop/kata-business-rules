@@ -4,15 +4,35 @@ class Runner
 
 
   def initialize(*args)
-    @item = args.first
-    @qty = args.last.to_i
+    @items = File.read("input.txt")
+    @line_items = @items.split("\n")
   end
 
 
   def print_packing_slip
     slip = ["Qty             Item            Price Each        Total"]
-    slip << "#{@qty}               #{@item}   $#{250}.00           $#{250*@qty}.00"
-    puts slip.join("\n")
+    grand_total = 0
+    @line_items.each do |line_item|
+      line_item = line_item.split(";")
+      qty = line_item.first.to_i
+      item = line_item.last
+      total = lookup_price(item) * qty
+      grand_total += total
+      slip << "#{qty}               #{item}   $#{lookup_price(item)}.00           $#{lookup_price(item)*qty}.00"
+    end
+    slip << "Grand total: $%.2f" % [grand_total]
+
+    puts slip.join("\n").chomp
+  end
+
+
+  def lookup_price(item)
+    prices[item]
+  end
+
+
+  def prices
+    {"Widget X 2000" => 250, "Widget Y 2010" => 500}
   end
 
 

@@ -1,11 +1,19 @@
 Given /^I order (\d+) "([^"]*)" items$/ do |qty, item|
-  run "ruby ../../runner.rb \"Widget X 2000\" 2"
+  @items ||= []
+  @items << [qty, item]
 end
 
-Then /^I should see a packing slip with a total of \$(\d+)$/ do |total|
-  combined_output.should == <<-EOS
-Qty             Item            Price Each        Total
-2               Widget X 2000   $250.00           $#{total}.00
-  EOS
+Then /^I should see a packing slip:/ do |slip|
+
+  input =
+    @items.map do |pair|
+      '%s;%s' % pair
+    end.join("\n")
+
+  create_file("input.txt", input)
+
+  run "ruby ../../runner.rb"
+
+  combined_output.chomp.should == slip
 end
 
