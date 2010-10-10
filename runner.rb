@@ -17,7 +17,7 @@ class Runner
       line_item = line_item.split(";")
       line_item = LineItem.new(line_item.first.to_i, Item.new(line_item.last))
       grand_total += line_item.total
-      slip << "#{line_item.quantity}               #{line_item.item_name}   $#{line_item.item_price}.00           $#{line_item.total}.00"
+      slip << "%d               %s   $%.2f           $%.2f" % [line_item.quantity, line_item.item_name, line_item.item_price, line_item.total]
     end
     slip << "Grand total: $%.2f" % [grand_total]
 
