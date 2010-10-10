@@ -11,8 +11,12 @@ end
 
 describe Item do
 
-  subject { Item.new("Item1") }
+  context "named Item1 that costs $50.00" do
 
-  its(:name) { should == "Item1" }
-  its(:price) { should == 50 }
+    subject { Item.new("Item1") }
+
+    its(:name) { should == "Item1" }
+    its(:price) { should == 50 }
+
+  end
 end
