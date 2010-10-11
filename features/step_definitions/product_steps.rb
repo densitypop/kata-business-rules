@@ -27,3 +27,13 @@ end
 Then /^the packing slip should be sent to the royalty department$/ do
   combined_output.should =~ /A copy of the packing slip was sent to the royalty department/
 end
+
+Given /^I purchase a membership$/ do
+  @items ||= []
+  @items << [1, "Membership"]
+end
+
+Then /^my membership should be activated$/ do
+  combined_output.should =~ /Your membership has been activated/
+end
+

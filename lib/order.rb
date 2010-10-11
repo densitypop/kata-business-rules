@@ -31,7 +31,8 @@ class Order
 
   def indications
     {
-      send_copy_to_royalty_dept: "A copy of the packing slip was sent to the royalty department"
+      send_copy_to_royalty_dept: "A copy of the packing slip was sent to the royalty department",
+      activate_membership: "Your membership has been activated"
     }
   end
 
