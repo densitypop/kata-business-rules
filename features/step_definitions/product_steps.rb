@@ -14,6 +14,7 @@ Then /^I should see a packing slip:/ do |slip|
 
   run "ruby ../../runner.rb"
 
-  combined_output.chomp.should == slip
+  regexp = Regexp.escape(slip)
+  combined_output.chomp.should match(/#{regexp}/m)
 end
 
