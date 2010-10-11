@@ -9,6 +9,7 @@ class LineItem
 
   def item_name; item.name end
   def item_price; item.price end
+  def item_indication; item.indication end
 
   def total
     quantity * item_price
