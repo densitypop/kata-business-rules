@@ -37,3 +37,12 @@ Then /^my membership should be activated$/ do
   combined_output.should =~ /Your membership has been activated/
 end
 
+Given /^I upgrade my membership$/ do
+  @items ||= []
+  @items << [1, "Upgrade Member"]
+end
+
+Then /^my membership should be upgraded$/ do
+  combined_output.should =~ /Your membership has been upgraded/
+end
+
