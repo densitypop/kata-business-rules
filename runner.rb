@@ -13,12 +13,12 @@ class Runner
 
 
   def print_packing_slip
-    slip = ["Qty             Item            Price Each        Total"]
+    slip = ["%-8s%-16s%-12s%s" % ["Qty", "Item", "Price Each", "Total"]]
     order = Order.new
     @line_items.each do |raw_line_item|
       line_item = LineItemParser.parse(raw_line_item)
       order.add_line_item(line_item)
-      slip << "%d               %s   $%.2f           $%.2f" % [line_item.quantity, line_item.item_name, line_item.item_price, line_item.total]
+      slip << "%-8d%-16s$%-11.2f$%.2f" % [line_item.quantity, line_item.item_name, line_item.item_price, line_item.total]
     end
     slip << "Grand total: $%.2f" % [order.grand_total]
 
