@@ -14,7 +14,8 @@ end
 
 RSpec::Matchers.define :have_an_indication do |expected|
   match do |actual|
-    !actual.indication.nil?
+    !actual.indication.nil? &&
+      actual.indication == expected
   end
 end
 
@@ -31,10 +32,10 @@ describe Item do
   end
 
 
-  context "that requires extra steps" do
+  context "named DeLorean that is also a time machine" do
 
     subject { Item.new("DeLorean") }
 
-    it { should have_an_indication }
+    it { should have_an_indication("install time travel circuits") }
   end
 end
