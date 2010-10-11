@@ -5,8 +5,8 @@ class Item
 
   def datastore
     {
-      "Item1" => {price: 50},
-      "ComplexItem" => {indication: "do something", price: 10}
+      "Clocktower" => {price: 50},
+      "DeLorean" => {indication: "install time travel circuits", price: 10}
     }
   end
 end
@@ -20,11 +20,11 @@ end
 
 describe Item do
 
-  context "named Item1 that costs $50.00" do
+  context "named Clocktower that costs $50.00" do
 
-    subject { Item.new("Item1") }
+    subject { Item.new("Clocktower") }
 
-    its(:name) { should == "Item1" }
+    its(:name) { should == "Clocktower" }
     its(:price) { should == 50 }
     it { should_not have_an_indication }
 
@@ -33,7 +33,7 @@ describe Item do
 
   context "that requires extra steps" do
 
-    subject { Item.new("ComplexItem") }
+    subject { Item.new("DeLorean") }
 
     it { should have_an_indication }
   end
