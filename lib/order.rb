@@ -24,6 +24,17 @@ class Order
   end
 
 
+  def lookup_indication(indication)
+    indications[indication]
+  end
+
+
+  def indications
+    {
+      send_copy_to_royalty_dept: "A copy of the packing slip was sent to the royalty department"
+    }
+  end
+
   private
 
   def line_items; @line_items end

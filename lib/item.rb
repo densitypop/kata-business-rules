@@ -12,7 +12,7 @@ class Item
     {
       "Widget X 2000" => {price: 250},
       "Widget Y 2010" => {price: 500},
-      "Blink"         => {price: 3}
+      "Blink"         => {price: 3, indication: :send_copy_to_royalty_dept}
     }
   end
 

@@ -18,3 +18,12 @@ Then /^I should see a packing slip:/ do |slip|
   combined_output.chomp.should match(/#{regexp}/m)
 end
 
+Given /^I order a copy of "([^"]*)"$/ do |book|
+  @items ||= []
+  @items << [1, book]
+end
+
+
+Then /^the packing slip should be sent to the royalty department$/ do
+  combined_output.should =~ /A copy of the packing slip was sent to the royalty department/
+end
