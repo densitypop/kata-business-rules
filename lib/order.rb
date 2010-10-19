@@ -8,7 +8,7 @@ class Order
 
   def dispatch
     line_items.map(&:item_indication).map do |indication|
-      lookup_indication(indication)
+      dispatch_indication(indication)
     end
   end
 
@@ -24,8 +24,8 @@ class Order
   end
 
 
-  def lookup_indication(indication)
-    indications[indication]
+  def dispatch_indication(indication)
+    IndicationDispatcher.new(indication, self).dispatch
   end
 
 

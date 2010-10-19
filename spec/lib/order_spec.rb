@@ -1,5 +1,17 @@
 require 'order'
 
+
+class IndicationDispatcher
+  class AnIndication
+
+    def run
+      "extra steps"
+    end
+
+  end
+end
+
+
 describe Order do
 
 
