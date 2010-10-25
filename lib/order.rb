@@ -1,3 +1,5 @@
+require File.expand_path('./indication_dispatcher')
+
 class Order
 
 
