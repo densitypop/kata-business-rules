@@ -13,7 +13,20 @@ module IndicationDispatchers
     end
 
   end
+
+  class AnotherIndication
+
+    def initialize(order)
+      @order = order
+    end
+
+    def run
+      @order.indications << "more extra steps"
+    end
+
+  end
 end
+
 
 
 describe Order do
@@ -64,4 +77,16 @@ describe Order do
     its(:indications) { should == ["extra steps"] }
   end
 
+
+  context "placed for a product that requires two extra steps" do
+
+    subject do
+      line_item = OpenStruct.new(item_indication:
+                                 [:an_indication, :another_indication])
+      Order.new(line_item)
+    end
+
+    its(:indications) { should == ["extra steps", "more extra steps"] }
+
+  end
 end

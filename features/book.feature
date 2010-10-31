@@ -10,4 +10,5 @@ Feature:
     Grand total: $3.00
     """
     And the packing slip should be sent to the royalty department
+    And the sales agent should receive a commission payment
 

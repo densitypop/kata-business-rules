@@ -23,9 +23,16 @@ class Order
 
   def add_line_item(line_item)
     line_items << line_item
-    dispatch_indication(line_item.item_indication) if line_item.item_indication
+    indications = [line_item.item_indication].flatten.compact
+    dispatch_indications(indications)
   end
 
+
+  def dispatch_indications(indications)
+    indications.each do |indication|
+      dispatch_indication(indication)
+    end
+  end
 
   def dispatch_indication(indication)
     IndicationDispatcher.new(indication, self).dispatch
