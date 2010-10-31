@@ -1,6 +1,6 @@
 require 'indication_dispatcher'
 
-class IndicationDispatcher
+module IndicationDispatchers
   class MyDispatch
     attr_reader :order
 
@@ -20,10 +20,10 @@ describe IndicationDispatcher do
   subject { IndicationDispatcher.new(:my_dispatch, OpenStruct.new) }
 
   its(:dispatch) { should == "My Dispatch" }
-  its(:dispatch_instance) { should be_a(IndicationDispatcher::MyDispatch) }
+  its(:dispatch_instance) { should be_a(IndicationDispatchers::MyDispatch) }
 
 
-  describe IndicationDispatcher::MyDispatch do
+  describe IndicationDispatchers::MyDispatch do
 
 
     before(:all) do

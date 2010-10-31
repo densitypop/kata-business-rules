@@ -1,3 +1,5 @@
+require "#{File.dirname(__FILE__)}/indication_dispatchers"
+
 class IndicationDispatcher
   attr_reader :dispatcher, :order
 
@@ -12,10 +14,7 @@ class IndicationDispatcher
 
 
   def dispatch_instance
-    class_name = dispatcher.to_s[0].upcase +
-      dispatcher.to_s[1..-1].gsub(/_(.)/) { $1.upcase }
-
-    dispatcher_class = self.class.const_get(class_name)
+    dispatcher_class = IndicationDispatchers.load_dispatcher(dispatcher)
     dispatcher_class.new(order)
   end
 

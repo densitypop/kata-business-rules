@@ -1,7 +1,7 @@
 require 'order'
 
 
-class IndicationDispatcher
+module IndicationDispatchers
   class AnIndication
 
     def run
