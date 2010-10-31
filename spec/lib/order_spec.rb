@@ -54,7 +54,7 @@ describe Order do
   end
 
 
-  context "placed for a product that requires extra steps" do
+  context "placed for a product that requires an extra step" do
 
     subject do
       line_item = OpenStruct.new(item_indication: :an_indication)
