@@ -51,7 +51,7 @@ describe Order do
       Order.new(line_item)
     end
 
-    context "purchasing an extra $50 item" do
+    context "with an extra $50 item" do
 
       before(:each) do
         line_item = OpenStruct.new(total: 50)
