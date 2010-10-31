@@ -9,6 +9,7 @@ Feature:
     2       Widget X 2000   $250.00     $500.00
     Grand total: $500.00
     """
+    And the sales agent should receive a commission payment
 
 
   Scenario: Purchasing multiples of two different products
@@ -21,6 +22,7 @@ Feature:
     3       Widget Y 2010   $500.00     $1500.00
     Grand total: $2000.00
     """
+    And the sales agent should receive a commission payment
 
 
   Scenario: Purchasing the "Learning to Ski" video

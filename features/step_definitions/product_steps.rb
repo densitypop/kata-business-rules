@@ -46,3 +46,8 @@ Then /^my membership should be upgraded$/ do
   combined_output.should =~ /Your membership has been upgraded/
 end
 
+Then /^the sales agent should receive a commission payment$/ do
+  combined_output.should =~ /The sales agent has received a commission payment/
+end
+
+

@@ -1,3 +1,4 @@
+require File.dirname(__FILE__) + '/indication_dispatchers/generate_commission_payment'
 require File.dirname(__FILE__) + '/indication_dispatchers/send_copy_to_royalty_dept'
 require File.dirname(__FILE__) + '/indication_dispatchers/free_first_aid_video'
 require File.dirname(__FILE__) + '/indication_dispatchers/activate_membership'
