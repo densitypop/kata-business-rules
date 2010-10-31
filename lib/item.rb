@@ -3,6 +3,7 @@ class Item
 
   def initialize(name)
     @name = name
+    raise "The item named \"#{name}\" does not exist." unless datastore.key?(name)
     @price = datastore[name][:price]
     @indication = datastore[name][:indication]
   end

@@ -38,4 +38,12 @@ describe Item do
 
     it { should have_an_indication("install time travel circuits") }
   end
+
+
+  context "that doesn't exist" do
+
+    subject { lambda { Item.new("foo") } }
+
+    it { should raise_error("The item named \"foo\" does not exist.") }
+  end
 end
