@@ -18,10 +18,12 @@ class Runner
     @line_items.each do |raw_line_item|
       line_item = LineItemParser.parse(raw_line_item)
       order.add_line_item(line_item)
+    end
+
+    order.line_items.each do |line_item|
       slip << "%-8d%-16s$%-11.2f$%.2f" % [line_item.quantity, line_item.item_name, line_item.item_price, line_item.total]
     end
     slip << "Grand total: $%.2f" % [order.grand_total]
-    order.dispatch!
     slip += order.indications
 
     puts slip.join("\n").chomp

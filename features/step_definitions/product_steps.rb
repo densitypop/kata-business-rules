@@ -1,4 +1,4 @@
-Given /^I order (\d+) "([^"]*)" items$/ do |qty, item|
+Given /^I order (\d+) "([^"]*)"/ do |qty, item|
   @items ||= []
   @items << [qty, item]
 end

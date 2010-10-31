@@ -21,3 +21,15 @@ Feature:
     3       Widget Y 2010   $500.00     $1500.00
     Grand total: $2000.00
     """
+
+
+  Scenario: Purchasing the "Learning to Ski" video
+    Given I order 1 "Learning to Ski" video
+    Then I should see a packing slip:
+    """
+    Qty     Item            Price Each  Total
+    1       Learning to Ski $15.00      $15.00
+    1       First Aid       $0.00       $0.00
+    Grand total: $15.00
+    """
+

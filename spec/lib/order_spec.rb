@@ -4,8 +4,12 @@ require 'order'
 module IndicationDispatchers
   class AnIndication
 
+    def initialize(order)
+      @order = order
+    end
+
     def run
-      "extra steps"
+      @order.indications << "extra steps"
     end
 
   end
@@ -30,7 +34,7 @@ describe Order do
   context "placed for 1 product that costs $100" do
 
     subject do
-      line_item = OpenStruct.new(total: 100, item_indication: :an_indication)
+      line_item = OpenStruct.new(total: 100)
       Order.new(line_item)
     end
 
@@ -57,7 +61,7 @@ describe Order do
       Order.new(line_item)
     end
 
-    its(:dispatch!) { should == ["extra steps"] }
+    its(:indications) { should == ["extra steps"] }
   end
 
 end

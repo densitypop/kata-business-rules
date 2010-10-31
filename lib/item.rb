@@ -15,7 +15,9 @@ class Item
       "Widget Y 2010" => {price: 500},
       "Blink"         => {price: 3, indication: :send_copy_to_royalty_dept},
       "Membership"    => {price: 250, indication: :activate_membership},
-      "Upgrade Member" => {price: 100, indication: :upgrade_member}
+      "Upgrade Member" => {price: 100, indication: :upgrade_member},
+      "Learning to Ski" => {price: 15, indication: :free_first_aid_video},
+      "First Aid" => {price: 0}
     }
   end
 

@@ -2,19 +2,17 @@ require File.expand_path(File.dirname(__FILE__) + '/indication_dispatcher')
 
 class Order
   attr_accessor :indications
+  attr_accessor :line_items
 
 
   def initialize(*line_items)
-    @line_items = line_items || []
     @indications = []
-  end
-
-
-  def dispatch!
-    line_items.map(&:item_indication).compact.map do |indication|
-      dispatch_indication(indication)
+    @line_items = []
+    line_items.each do |line_item|
+      add_line_item(line_item)
     end
   end
+
 
   def grand_total
     line_items.inject(0) do |sum, line_item|
@@ -25,6 +23,7 @@ class Order
 
   def add_line_item(line_item)
     line_items << line_item
+    dispatch_indication(line_item.item_indication) if line_item.item_indication
   end
 
 
@@ -32,10 +31,6 @@ class Order
     IndicationDispatcher.new(indication, self).dispatch
   end
 
-
-  private
-
-  def line_items; @line_items end
 
 
 end
