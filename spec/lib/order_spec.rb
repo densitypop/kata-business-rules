@@ -57,12 +57,6 @@ describe Order do
       Order.new(line_item)
     end
 
-    before(:each) do
-      subject.stub!(:lookup_indication).
-              with(:an_indication).
-              and_return("extra steps")
-    end
-
     its(:dispatch!) { should == ["extra steps"] }
   end
 
