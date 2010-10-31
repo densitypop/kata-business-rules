@@ -21,7 +21,8 @@ class Runner
       slip << "%-8d%-16s$%-11.2f$%.2f" % [line_item.quantity, line_item.item_name, line_item.item_price, line_item.total]
     end
     slip << "Grand total: $%.2f" % [order.grand_total]
-    slip += order.dispatch
+    order.dispatch!
+    slip += order.indications
 
     puts slip.join("\n").chomp
   end

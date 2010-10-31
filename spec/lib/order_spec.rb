@@ -63,7 +63,7 @@ describe Order do
               and_return("extra steps")
     end
 
-    its(:dispatch) { should == ["extra steps"] }
+    its(:dispatch!) { should == ["extra steps"] }
   end
 
 end

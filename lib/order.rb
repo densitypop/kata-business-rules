@@ -10,7 +10,7 @@ class Order
   end
 
 
-  def dispatch
+  def dispatch!
     line_items.map(&:item_indication).compact.map do |indication|
       dispatch_indication(indication)
     end
