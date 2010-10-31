@@ -1,5 +1,5 @@
 source "http://rubygems.org"
 
-gem "rspec", "2.0.0.rc"
+gem "rspec"
 gem "cucumber"
 gem "aruba"
