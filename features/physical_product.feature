@@ -2,7 +2,7 @@ Feature:
   If the payment is for a physical product, generate a packing slip for shipping.
 
   Scenario: Purchasing multiples of one product
-    Given I order 2 "Widget X 2000" items
+    When I order 2 "Widget X 2000" items
     Then I should see a packing slip:
     """
     Qty     Item            Price Each  Total
@@ -13,7 +13,7 @@ Feature:
 
 
   Scenario: Purchasing multiples of two different products
-    Given I order 2 "Widget X 2000" items
+    When I order 2 "Widget X 2000" items
     And I order 3 "Widget Y 2010" items
     Then I should see a packing slip:
     """
@@ -26,7 +26,7 @@ Feature:
 
 
   Scenario: Purchasing the "Learning to Ski" video
-    Given I order 1 "Learning to Ski" video
+    When I order 1 "Learning to Ski" video
     Then I should see a packing slip:
     """
     Qty     Item            Price Each  Total
