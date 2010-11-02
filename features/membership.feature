@@ -3,7 +3,7 @@ Feature:
   If the payment is an upgrade to a membership, apply the upgrade.
 
   Scenario: Purchase membership
-    Given I purchase a membership
+    When I purchase a membership
     Then I should see a packing slip:
     """
     Qty     Item            Price Each  Total
@@ -13,7 +13,7 @@ Feature:
     And my membership should be activated
 
   Scenario: Upgrade membership
-    Given I upgrade my membership
+    When I upgrade my membership
     Then I should see a packing slip:
     """
     Qty     Item            Price Each  Total
