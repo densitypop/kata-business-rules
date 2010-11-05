@@ -1,0 +1,41 @@
+# It's Business Time
+
+Welcome to my solution of the [Business Rules code kata](http://codekata.pragprog.com/2007/01/kata_sixteen_bu.html#more)!
+
+## How to read this code
+
+1. Start off by reading the [Business Rules code kata](http://codekata.pragprog.com/2007/01/kata_sixteen_bu.html#more) to get familiar with the requirements.
+2. Start following my [commit history](http://github.com/densitypop/kata-business-requirements/master/commits) from the first commit to the last to see my progression.
+3. Look at the [Cucumber features](LINK) to see how the program is to be run.
+4. Look at the [specs](LINK) to see how code works (start with order, to line item, to item).
+5. [Contact me](LINK) with any questions.
+
+
+## Focus
+
+This kata focuses on being able to easily add new business rules to a system that is not very well specified. Early on I realized that the easiest way to make it flexible would be to avoid using "if" statements for business rule branching. My approach was to create an "indication" on an item that would indicate the item has extra steps required after being purchased. I saw some nice ways to use this indication right away. However, following strict BDD, "do the simplest thing that could possibly work" was my mantra. Therefore I started with an in-memory store. I was fascinated to see by the end that the requirements drove me to a fairly sophisticated implementation of the dispatch pattern. This progress is easy to see if you follow my [commit history](http://github.com/densitypop/kata-business-requirements/master/commits).
+
+## What went well
+
+- I let the business requirements drive my solution
+- RSpec specdoc output (`rspec -fd`) reads very nicely
+- Cucumber driving the full stack from CLI all the way down
+- No "if" statements for business logic branching
+- "Big ball of mud" approach made it easy to get a handle on the requirements 37e2504029ca344b9ca8db6b0181ac61c9452d52
+
+## What went not so well
+
+- Still used "if" statements for gaurd clauses b7efa38ad71be77a7814b6d21a834c201085a5a0
+- Had a difficult time with YAGNI at the beginning; got over it pretty quickly
+- Output table isn't very flexible be2111e4005d7943db5072ef3ba2a84af21ed51a
+- Started out with a "big ball of mud" covered only by a couple scenarios; no specs 37e2504029ca344b9ca8db6b0181ac61c9452d52
+
+## Tools
+
+- [Cucumber](http://github.com/aslakhellesoy/cucumber) for full stack testing
+- [Aruba](http://github.com/aslakhellesoy/aruba) to drive Cucumber from the CLI
+- [RSpec](http://github.com/rspec/rspec) for its beautiful spec-like output
+- [Bundler](http://github.com/carlhuda/bundler) for its dependency management superpowers
+
+## Run it yourself
+
