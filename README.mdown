@@ -7,7 +7,7 @@ Welcome to my solution of the [Business Rules code kata](http://codekata.pragpro
 1. Start off by reading the [Business Rules code kata](http://codekata.pragprog.com/2007/01/kata_sixteen_bu.html#more) to get familiar with the requirements.
 2. Start following my [commit history](https://github.com/densitypop/kata-business-rules/commits/master?page=2) from the first commit to the last to see my progression.
 3. Look at the [Cucumber features](https://github.com/densitypop/kata-business-rules/tree/master/features/) to see how the program is to be run.
-4. Look at the [specs](https://github.com/densitypop/kata-business-rules/tree/master/spec/) to see how code works (start with order, to line item, to item).
+4. Look at the [specs](https://github.com/densitypop/kata-business-rules/tree/master/spec/lib) to see how code works (start with order, to line item, to item).
 5. Contact me with any questions.
 
 
@@ -39,8 +39,8 @@ This kata focuses on being able to easily add new business rules to a system tha
 
 ## Run it yourself
 
-    git clone git://github.com/densitypop/kata--business-rules.git
-    cd kata--business-rules
+    git clone git://github.com/densitypop/kata-business-rules.git
+    cd kata-business-rules
     bundle install
     cucumber features
     rspec spec
