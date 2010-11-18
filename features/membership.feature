@@ -1,4 +1,4 @@
-Feature:
+Feature: Membership
   If the payment is for a membership, activate that membership.
   If the payment is an upgrade to a membership, apply the upgrade.
 

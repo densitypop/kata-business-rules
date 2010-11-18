@@ -1,4 +1,4 @@
-Feature:
+Feature: Physical Product
   If the payment is for a physical product, generate a packing slip for shipping.
 
   Scenario: Purchasing multiples of one product
